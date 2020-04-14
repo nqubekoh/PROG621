@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    int arraySize,input;
+
+    //inputing size of an array
+       cout << "How many elements you want to input" << endl;
+       cin>> arraySize;
+
+       int intArray[arraySize];
+        int sortedArray[arraySize];
+
+       //entering elements in an array
+       for (int i=0; i<arraySize;i++){
+             cout << "input element number " <<i+1<< endl;
+           cin>>input;
+       intArray[i]= input;
+       }
+
+
+
+    //sorting an array
+      for (int i=0; i<arraySize; i++){
+             cout << " outside:"<<endl;
+         int greate=0;
+          int index;
+
+           for (int j=0; j<arraySize;j++){
+            cout << " inside:"<<endl;
+               if(intArray[j]>greate){
+                 greate =  intArray[j];
+                 cout << "great is now : "<< intArray[j]<< endl;
+                 cout << " the index of greater is  "<< j<<endl;
+                index= j;
+               }
+
+           }
+          cout << " inserting "<< greate <<" on index "<< (arraySize-1)-i<< " of the sorted array"<<endl;
+         sortedArray[(arraySize-1)-i]= greate;
+         cout << "put zero in the intArray index : " << index<<endl;
+         intArray[index]=0;
+         greate=0;
+        }
+
+
+        int *ptr = &sortedArray[0];
+       //printing elements out using pointer
+        for (int i=0; i<arraySize;i++){
+             cout << *ptr ;
+        ptr++;
+        }
+
+    return 0;
+}
